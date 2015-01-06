@@ -259,8 +259,10 @@ module.exports = function(app) {
     }); 
   });
 
-  app.get('/u/:name/:day/:title', function (req, res) {
-    Post.getOne(req.params.name, req.params.day, req.params.title, function (err, post) {
+  app.get('/item/:_id', function (req, res) {
+    console.log("in item");
+    Post.getOne(req.params._id, function (err, post) {
+      console.log(post);
       if (err) {
         req.flash('error', err); 
         return res.redirect('/');
