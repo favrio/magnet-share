@@ -1,31 +1,103 @@
-<%- include header %>
-<% posts.forEach(function (post, index) { %>
-  <p><h2><a href="/item/<%= post._id %>"><%= post.title %></a></h2>
-  <a href="/u/<%= post.name %>"><img src="<%= post.head %>" class="r_head" /></a></p>
-  <p class="info">
-    作者：<a href="/u/<%= post.name %>"><%= post.name %></a> | 
-    日期：<%= post.time.minute %> | 
-    标签：
-    <% post.tags.forEach(function (tag, index) { %>
-      <% if (tag) { %>
-        <a class="tag" href="/tags/<%= tag %>"><%= tag %></a>
-      <% } %>
-    <% }) %>
-    <% if (post.reprint_info.reprint_from) { %>
-      <br><a href="/u/<%= post.reprint_info.reprint_from.name %>/<%= post.reprint_info.reprint_from.day %>/<%= post.reprint_info.reprint_from.title %>">原文链接</a>
-    <% } %>
-  </p>
-  <p><%- post.post %></p>
-  <p class="info">
-    阅读：<%= post.pv %> | 
-    评论：<%= post.comments.length %> | 
-    转载：
-    <% if (post.reprint_info.reprint_to) { %>
-      <%= post.reprint_info.reprint_to.length %>
-    <% } else { %>
-      <%= 0 %>
-    <% } %>
-  </p>
-<% }) %>
-<%- include paging %>
-<%- include footer %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>NSU P2P BETA™</title>
+    <link href="/stylesheets/basic.min.css" rel="stylesheet" /><!--基础样式-->
+    <link href="/stylesheets/index.min.css" rel="stylesheet" />
+    <script src="/third/jquery-1.7.1.min.js"></script>
+    <script src="/third/jquery.animate-colors-min.js"></script>
+    <script src="/scripts/main.min.js"></script>
+</head>
+<body>
+    <div id="wraper">
+        <div class="header">
+            <a href="#" class="logo">首页</a>
+            <div class="searchBox">
+                <input type="text" class="searchText transform" autofocus="" />
+                <input type="button" class="searchBtn" value="" />
+            </div>
+        </div>
+        <div class="main">
+            <div class="mainLeft">
+                <div id="catBox">
+                    <ul>
+                        <li><a href="javascript:;" class="catMovie catFocus">影视</a></li>
+                        <li><a href="javascript:;" class="catSoft">软件</a></li>
+                        <li><a href="javascript:;" class="catGame">游戏</a></li>
+                        <li><a href="javascript:;" class="catOther">其他</a></li>
+                    </ul>
+                </div>
+                <div class="catShowCutLine"></div>
+                <div class="showCase boxShadow">
+                    <div class="catShow threeBorder showActive">
+                        111111111111111
+                    </div>
+                    <div class="catShow threeBorder">
+                        222222222222222
+                    </div>
+                    <div class="catShow threeBorder">
+                        33333333333333333
+                    </div>
+                    <div class="catShow threeBorder">
+                        444444444444444
+                    </div>
+                </div>
+
+                <!--流量排行开始-->
+                <h2 class="shareRankTitle">共享流量排行榜</h2>
+                <div class="twoBorderWidth"></div>
+                <div class="rankWrap boxShadow">
+                    <div class="shareRank threeBorder">
+                        <table>
+                            <tr><td class="rankNum">排名</td><td class="stuId">学号</td><td>今日上传</td><td>总共上传</td><td>今日积分</td><td>总积分</td></tr>
+                            <tr><td class="rankNum">1</td><td class="stuId">11311310304</td><td>500mb</td><td>100000mb</td><td>10</td><td>80</td></tr>
+                            <tr><td class="rankNum">2</td><td class="stuId">11311310304</td><td>500mb</td><td>100000mb</td><td>10</td><td>80</td></tr>
+                            <tr><td class="rankNum">3</td><td class="stuId">11311310304</td><td>500mb</td><td>100000mb</td><td>10</td><td>80</td></tr>
+                            <tr><td class="rankNum">4</td><td class="stuId">11311310304</td><td>500mb</td><td>100000mb</td><td>10</td><td>80</td></tr>
+                            <tr><td class="rankNum">5</td><td class="stuId">11311310304</td><td>500mb</td><td>100000mb</td><td>10</td><td>80</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="posts">
+                    <% posts.forEach(function (post, index) { %>
+                    <p><h2><a href="#"><%= post.title %></a></h2></p>
+                    <p class="info">
+                    作者：<a href="#"><%= post.name %></a> | 
+                    日期：<%= post.time.minute %>
+                    </p>
+                    <p><%- post.post %></p>
+                    <% }) %>
+                </div>
+            </div>
+
+            <div class="mainRight">
+            	<div class="userMeta">
+				<% if (success) { %>
+				<div><%= success %></div>
+				<% } %>
+				<% if (error) { %>
+				<div><%= error %> </div>
+				<% } %>
+
+				<% if(user) { %>
+				<%= user.name %>
+				<% } %>
+            	</div>
+                <div class="rightBtnDiv">
+                    <a href="#" class="rightBtn userInfo">用户</a>
+                    <a href="#" class="rightBtn management">管理</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer">
+            <div class="footerRight">
+                <p class="powder">Powered By</p>
+                <a href="http://www.young-soft.com" class="qrLogo">青软工作室</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

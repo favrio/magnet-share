@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 
 // STYLES
 gulp.task('styles', function() {
-  return gulp.src('src/styles/main.less')
+  return gulp.src('src/styles/*.less')
     .pipe(less())
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
     // .pipe(gulp.dest('public/stylesheets/'))
@@ -26,7 +26,7 @@ gulp.task('styles', function() {
 
 // SCRIPTS
 gulp.task('scripts', function() {
-  return gulp.src('src/scripts/**/*.js')
+  return gulp.src('src/scripts/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(concat('main.js'))

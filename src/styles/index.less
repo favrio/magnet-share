@@ -1,0 +1,190 @@
+﻿body {
+    background: #EBEBEB url(../images/topbg.png) 0 0 repeat-x;
+}
+/*HEADER*/
+.logo {
+    width: 310px;
+    height: 89px;
+    margin:40px auto;
+    display:block;
+    background:url(../images/logo.png) 50% 0 no-repeat;
+    text-indent:-9999px;
+}
+.searchBox {
+    position:relative;
+    width:489px;
+    height:57px;
+    margin:20px auto;
+    background: url(../images/searchbox.png) 50% 0 no-repeat;
+}
+.searchText {
+    position:absolute;
+    top:6px;
+    left:7px;
+    height: 30px;
+    width:378px;
+    font-size:18px;
+    border:1px solid #0E4194;
+    padding:0 5px;
+    outline:none;
+    box-shadow:inset 0px 2px 4px #C1C1C1;
+    background:#E0ECFD;
+}
+    .searchText:focus {
+        background:#fff;
+    }
+.searchBtn {
+    position:absolute;
+    right:7px;
+    top:6px;
+    height: 29px;
+    padding:0 10px;
+    width:88px;
+    height:32px;
+    background: url(../images/search_normal.png);
+    border:0 none;
+}
+    .searchBtn:hover {
+        background: url(../images/search_hover.png);
+    }
+    .searchBtn:active {
+        background: url(../images/search_active.png);
+    }
+/*首页分类*/
+.main {
+    overflow: hidden;
+    zoom: 1;
+    padding-top:80px;
+}
+.mainLeft {
+    float:left;
+    width:653px;
+}
+#catBox {
+    overflow:hidden;
+    zoom:1;
+}
+    #catBox ul {
+        overflow: hidden;
+        zoom: 1;
+        background:url(../images/catBox_cut_line.png) 652px 0 no-repeat;
+    }
+#catBox li {
+    float: left;
+    line-height:50px;
+    background:url(../images/catBox_cut_line.png) 0 0 no-repeat;
+}
+    #catBox li a {
+        width: 86px;
+        height:50px;
+        display:block;
+        color:#959595;
+        font-size:20px;
+        padding-left:76px;
+    }
+.catShow {
+    display:none;
+}
+.showActive {
+    display: block;
+}
+.catMovie {
+    background: url(../images/films.png) 30% 54% no-repeat;
+}
+.catSoft {
+    background: url(../images/software.png) 30% 54% no-repeat;
+}
+.catGame {
+    background: url(../images/games.png) 30% 54% no-repeat;
+}
+.catOther {
+    background: url(../images/others.png) 30% 54% no-repeat;
+}
+#catBox li {
+    padding-left: 1px;
+}
+#catBox a {
+    background-position: 30% 2px;
+}
+.mainLeft #catBox .catFocus {
+    background-position:30% -49px;
+    height:47px;
+    color:#3980F0;
+}
+.threeBorder {
+    background:#fff;
+    padding:20px;
+    border-left:1px solid #c4c4c4;
+    border-right:1px solid #c4c4c4;
+    border-bottom:1px solid #c4c4c4;
+}
+.twoBorderWidth {
+    height: 2px;
+    background: #3980F0;
+}
+.shareRank .rankNum {
+    width: 50px;
+}
+.shareRank .stuId {
+    width: 150px;
+}
+.shareRank {
+    color:#9295A2;
+}
+    .shareRank tr:hover {
+        background: #F5F5F5;
+    }
+    .shareRank td {
+        width:110px;
+    }
+    .shareRank tr {
+        line-height:28px;
+        border-bottom:1px solid #EBEBEB;
+    }
+.shareRankTitle {
+    font-size:18px;
+    color:#3980F0;
+    line-height:30px;
+    width:158px;
+    margin-top:39px;
+    padding-left:40px;
+    background:url(../images/list_focus.png) 0 0 no-repeat;
+}
+.boxShadow {
+    background-image: url(../images/boxShadow.png);
+    background-position: 0 100%;
+    background-repeat:no-repeat;
+    padding-bottom:14px;
+}
+.catShowCutLine {
+    height: 2px;
+    background: #3980F0;
+    border-left:1px solid #AEAFAE;
+    border-right:1px solid #AEAFAE;
+}
+.mainRight {
+    margin-left: 25px;
+    float:left;
+    
+}
+.rightBtn {
+    display:block;
+    height:44px;
+    width:167px;
+    border:1px solid #758AAB;
+    border-radius:2px;
+    color:#fff;
+    font-size:20px;
+    line-height:44px;
+    text-align:center;
+    margin-top:18px;
+}
+.rightBtnDiv {
+    margin-top: 50px;
+}
+.userInfo {
+    background-color: #92B5EE;
+}
+.management {
+    background-color: #B5D283;
+}
