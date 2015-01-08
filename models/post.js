@@ -2,11 +2,12 @@ var mongodb = require('./db'),
 	markdown = require('markdown').markdown,
 	ObjectID = require('mongodb').ObjectID;
 
-function Post(name, title, post, magnet) {
+function Post(name, title, post, magnet, tags) {
 	this.name = name;
 	this.title = title;
 	this.post = post;
 	this.magnet = magnet;
+	this.tags = tags;
 }
 
 module.exports = Post;
@@ -21,6 +22,7 @@ Post.prototype.save = function(callback) {
 		minute: date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +
 			date.getHours() + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes())
 	}
+	var tags = this.tags.split(",");
 
 	var post = {
 		name: this.name,
@@ -28,6 +30,7 @@ Post.prototype.save = function(callback) {
 		title: this.title,
 		post: this.post,
 		magnet: this.magnet,
+		tags: tags,
 		comments: []
 	};
 

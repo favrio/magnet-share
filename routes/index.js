@@ -108,7 +108,7 @@ module.exports = function(app) {
 	app.post('/post', checkLogin);
 	app.post('/post', function(req, res) {
 		var currentUser = req.session.user,
-			post = new Post(currentUser.name, req.body.title, req.body.post, req.body.magnet);
+			post = new Post(currentUser.name, req.body.title, req.body.post, req.body.magnet, req.body.tags);
 		post.save(function(err) {
 			if (err) {
 				req.flash('error', err);
@@ -172,6 +172,7 @@ module.exports = function(app) {
 				req.flash('error', err);
 				return res.redirect('/');
 			}
+			console.log(post);
 			res.render('article', {
 				title: post.title,
 				post: post,
@@ -190,6 +191,7 @@ module.exports = function(app) {
 			name: req.body.name,
 			email: req.body.email,
 			website: req.body.website,
+			rate: req.body.rate,
 			time: time,
 			content: req.body.content
 		};

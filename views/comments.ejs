@@ -1,20 +1,39 @@
-<br />
-<% post.comments.forEach(function (comment, index) { %>
-  <p><a href="<%= comment.website %>"><%= comment.name %></a>
-  <span class="info"> 回复于 <%= comment.time %></span></p>
-  <p><%- comment.content %></p>
-<% }) %>
-
 <form method="post">
-<% if (user) { %>
-  姓名：<input type="text" name="name" value="<%= user.name %>" /><br />
-  邮箱：<input type="text" name="email" value="<%= user.email %>" /><br />
-  网址：<input type="text" name="website" value="/u/<%= user.name %>" /><br />
-<% } else { %>
-  姓名：<input type="text" name="name" /><br />
-  邮箱：<input type="text" name="email" /><br />
-  网址：<input type="text" name="website" value="http://" /><br />
-<% } %>
-  <textarea name="content" rows="5" cols="80"></textarea><br />
-  <input type="submit" value="留言" />
+<div class="commentSubmit">
+    <input class="commentText" name="content" type="text" />
+    <span class="startText">评分：</span>
+    <select name="rate">
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+    </select>
+    <input type="submit" class="subComment" value=" " />
+</div>
+  姓名：<input type="text" name="name"<% if (user) { %>disabled value="<%= user.name %>"<% } %> /><br />
+  邮箱：<input type="text" name="email"<% if (user) { %>disabled value="<%= user.email %>"<% } %> /><br />
+  网址：<input type="text" name="website"<% if (user) { %>disabled value="/u/<%= user.name %>"<% } %> /><br />
 </form>
+
+
+<div class="commentsList">
+    <ul>
+        <% post.comments.forEach(function (comment, index) { %>
+        <li>
+            <p class="userScore"><%= comment.rate %></p>
+            <p><a class="commentSubIdNum" href="<%= comment.website %>"><%= comment.name %></a><span class="commentSubTime"><%= comment.time %></span></p>
+            <p><%- comment.content %></p>
+        </li>
+        <% }) %>
+    </ul>
+    <ul class="comPagebar">
+        <li><a href="#" class="prePage">上一页</a></li>
+        <li><a href="#" class="currentComPage">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#" class="nextPage">下一页</a></li>
+    </ul>
+</div>
+

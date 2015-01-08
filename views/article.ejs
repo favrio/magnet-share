@@ -1,26 +1,90 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title><%- post.title %></title>
+    <link href="/stylesheets/basic.min.css" rel="stylesheet" /><!--基础样式-->
+    <link href="/stylesheets/download.min.css" rel="stylesheet" />
 </head>
 <body>
-	<% if (user && (user.name == post.name)) { %>
-	<p>
-	  <span><a class="edit" href="/edit/<%= post._id %>">编辑</a></span>
-	  <span><a class="edit" href="/remove/<%= post._id %>">删除</a></span>
-	</p>
-	<% } %>
-	<p class="info">
-	作者：<a href="/u/<%= post.name %>"><%= post.name %></a> | 
-	日期：<%= post.time.minute %>
-	</p>
-	<p><%- post.post %></p>
+    <div id="wraper">
+        <div class="header">
+            <a href="index.html" class="smallLogo">首页</a>
+            <div class="searchBox">
+                <input type="text" class="searchText transform" autofocus="" />
+                <input type="button" class="searchBtn" value=" " />
+            </div>
+        </div>
+        <div class="main">
+            <div class="content">
+                <div class="banner">
+                    <img src="/testdata/banner_test.png"  class="userBanner" />
+                    <h1 class="pageTitle"><%- post.title %></h1>
+                    <div class="pageTitleBg"></div>
+                </div>
+                <div class="information">
+                    <div class="downloadUrl">
+                        <img src="/images/download-ico/films_big.png" class="downloadIco" />
+                        <input type="text" class="downloadUrlText" id="downloadText" value="<%- post.magnet%>" />
+                        <a href="<%- post.magnet%>" class="downloadCopy" id="copUrlBtn"></a>
+                    </div>
+                    <div class="catList">
+                        <span class="catListSmallTitle">分类：</span>
+                        <% post.tags.forEach(function (tag, index) { %>
+                        <a>
+                            <%=tag%>
+                        </a>
+                        <% }) %>
+                        
+                    </div>
+                    <div class="fileSize">
+                        <span class="catListSmallTitle">体积：</span>
+                        3.53G
+                    </div>
+                    <div class="intro">
+                    	<%- post.post %>
+                    </div>
+                    
+                    <%- include comments %>
+                    
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="uperInfo">
+                    <p>上传者</p>
+                    <p class="userInfoId"><a href="/u/<%= post.name %>"><%= post.name %></a></p>
+                    <span>分享流量：</span><span>20G</span>
+                    <span>积分：</span><span>103</span>
+                    <span>排名：</span><span>234</span>
+                </div>
+                <div class="fileInfo">
+                    <span>发布时间：</span><span><%= post.time.minute %></span>
+                    <span>查看次数：</span><span>103</span>
+                    <span>下载次数：</span><span>234</span>
+                    <span>资源数：</span><span>103</span>
+                    <span>最后下载：</span><span>2012-11-24</span>
+                </div>
 
-	<p>
-		MAGNET：<%- post.magnet%>
-	</p>
+                <div>
+					<% if (user && (user.name == post.name)) { %>
+					<p>
+					  <span><a class="edit" href="/edit/<%= post._id %>">编辑</a></span>
+					  <span><a class="edit" href="/remove/<%= post._id %>">删除</a></span>
+					</p>
+					<% } %>
+                </div>
 
-	<%- include comments %>
+                <div class="report">
+                    <a href="#" class="reportUper">查他水表</a>
+                </div>
+            </div>           
+        </div>
+        <div class="footer">
+           <div class="footerRight">
+                <p class="powder">Powered By</p>
+                <a href="http://www.young-soft.com" class="qrLogo">青软工作室</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
