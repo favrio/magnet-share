@@ -1,12 +1,70 @@
 <%- include header %>
-<ul class="archive">
-<% var lastYear = 0 %>
-<% posts.forEach(function (post, index) { %>
-  <% if(lastYear != post.time.year) { %>
-    <li><h3><%= post.time.year %></h3></li>
-  <% lastYear = post.time.year } %>
-    <li><time><%= post.time.day %></time></li>
-    <li><a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%= post.title %></a></li>
-<% }) %>
-</ul>
+
+
+        <div class="main" id="search">
+        	<h1><%= keyword%>的搜索结果</h1>
+            <div class="filter">
+                <div class="switchCase category">
+                    <span class="filterLabel">分类：</span>
+                    <a href="#" class="on">影视</a>
+                    <a href="#">游戏</a>
+                    <a href="#">软件</a>
+                    <a href="#">其他</a>
+                </div>
+                <div class="switchCase video">
+                    <span class="filterLabel">类别：</span>
+                    <a href="#" class="on">电视剧</a>
+                    <a href="#">剧集</a>
+                    <a href="#">教学</a>
+                    <a href="#">MV</a>
+                </div>
+
+                
+                <div class="switchCase sort">
+                    <span class="filterLabel">排序：</span>
+                    <a href="#" class="on">标题</a>
+                    <a href="#">下载量</a>
+                    <a href="#">时间</a>
+                    <a href="#">评分</a>
+                    <a href="#">大小</a>
+                    <a href="#">资源数</a>
+                </div>
+            </div>
+            <div class="result">
+                <table class="resultTable">
+                    <tr>
+                        <th>标题</th>
+                        <th>下载量</th>
+                        <th>时间</th>
+                        <th>评分</th>
+                        <th>大小</th>
+                        <th>资源数</th>
+                    </tr>
+
+                    
+					<% posts.forEach(function (post, index) { %>
+				  	<tr>
+				  		<td class="sourceTitle"><a href="/item/<%= post._id%>"><%= post.title %></a></td>
+				  		<td><%= post.time.year %></td>
+						<td><%= post.time.day %></td>
+						<td class="sourceScore"><%= post.time.year %></td>
+						<td><%= post.time.year %></td>
+						<td><%= post.time.year %></td>
+						
+			    	</tr>
+                    <% }) %>
+                </table>
+
+                <ul class="comPagebar">
+                    <li><a href="#" class="prePage">上一页</a></li>
+                    <li><a href="#" class="currentComPage">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#" class="nextPage">下一页</a></li>
+                </ul>
+            </div>
+        </div>
+
+
 <%- include footer %>

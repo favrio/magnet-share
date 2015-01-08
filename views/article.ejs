@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title><%- post.title %></title>
-    <link href="/stylesheets/basic.min.css" rel="stylesheet" /><!--基础样式-->
-    <link href="/stylesheets/download.min.css" rel="stylesheet" />
-</head>
-<body>
-    <div id="wraper">
-        <div class="header">
-            <a href="index.html" class="smallLogo">首页</a>
-            <div class="searchBox">
-                <input type="text" class="searchText transform" autofocus="" />
-                <input type="button" class="searchBtn" value=" " />
-            </div>
-        </div>
+<% include header %>
         <div class="main">
             <div class="content">
                 <div class="banner">
@@ -80,12 +64,4 @@
                 </div>
             </div>           
         </div>
-        <div class="footer">
-           <div class="footerRight">
-                <p class="powder">Powered By</p>
-                <a href="http://www.young-soft.com" class="qrLogo">青软工作室</a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+<% include footer %>

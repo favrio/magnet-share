@@ -73,14 +73,13 @@
     background:#4A8DF7;
     border:1px solid #216ADD;
 }
-    .filter span {
+    .filter .filterLabel {
         color: #4A8DF7;
         font-size:16px;
         font-weight:bold;
     }
-.filter div {
-    padding:0 10px;
-    line-height: 50px;
+.filter .switchCase {
+    padding:16px 10px;
     border-bottom:1px solid #E1E1E1;
 }
 .filter .sort {
@@ -90,31 +89,37 @@
 .resultTable {
     color:#737373;
     width: 100%;
-    border-top:1px solid #E5E5E5;
-    border-left:1px solid #E5E5E5;
-    border-right:1px solid #E5E5E5;
+    border-top: 1px solid #D3D3D3;
+    border-left: 1px solid #D3D3D3;
+    border-right: 1px solid #D3D3D3;
+    margin-top: 10px;
 }
-    .resultTable th {
-        background: #EFEFEF;
-    }
-    .resultTable tr {
-        line-height: 60px;
-        background:#fff;
-        border-bottom:1px solid #E5E5E5;
-    }
-    .resultTable td,.resultTable th {
-        padding: 0 10px;
-    }
-    .resultTable .sourceTitle a {
-        color: #000000;
-    }
-    .resultTable .sourceScore {
-        color: #2F79EF;
+    .resultTable {
+        td, th {
+            padding: 0 10px;
+        }
+        th {
+            background: #EFEFEF; 
+        }
+        td {
+            border-bottom: 1px solid #D3D3D3;
+        }
+        tr {
+            line-height: 60px;
+            background:#fff;
+        }
+        .sourceScore {
+            color: #2F79EF;
+        }
+        .sourceTitle a {
+            color: #000000;
+        }
+        
     }
 .footer {
     margin-top: 40px;
 }
-.result h1 {
+#search h1 {
     font-size: 20px;
     margin-top:40px;
     margin-bottom:10px;
@@ -134,11 +139,4 @@
 .comPagebar .currentComPage {
     color: #fff;
     background: #2971E3;
-}
-
-.switchCase {
-    display: none;
-}
-.switchCaseOn {
-    display: block;
 }
