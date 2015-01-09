@@ -58,6 +58,42 @@ Post.prototype.save = function(callback) {
 	});
 }
 
+Post.getSome = function(name, page, nums, callback) {
+	mongodb.open(function(err, db) {
+		if (err) {
+			return callback(err);
+		}
+		db.collection("posts", function(err, collection) {
+			if (err) {
+				mongodb.close();
+				return callback(err);
+			}
+
+			var query = {};
+			if (name) {
+				query.name = name;
+			}
+			collection.count(query, function(err, total) {
+				collection.find(query, {
+					skip: (page - 1) * nums,
+					limit: nums
+				}).sort({
+					time: -1
+				}).toArray(function(err, docs) {
+					mongodb.close();
+					if (err) {
+						return callback(err);
+					}
+					docs.forEach(function(doc) {
+						doc.post = markdown.toHTML(doc.post);
+					});
+					callback(null, docs, total);
+				});
+			});
+		});
+	});
+}
+
 Post.getAll = function(name, callback) {
 	mongodb.open(function(err, db) {
 		if (err) {

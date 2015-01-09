@@ -5,7 +5,7 @@ var crypto = require('crypto'),
 
 module.exports = function(app) {
 	app.get('/', function(req, res) {
-		Post.getAll(null, function(err, posts) {
+		Post.getSome(null, 1, 2, function(err, posts) {
 			if (err) {
 				posts = [];
 			}
