@@ -8,8 +8,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
-    del = require('del'),
-    watch = require('gulp-watch');
+    del = require('del');
 
 // STYLES
 gulp.task('styles', function() {
@@ -60,13 +59,14 @@ gulp.task('watch', function() {
 var lessFiles = "src/styles/*.less";
 
 gulp.task('default', function() {
-    watch(lessFiles, function(files) {
-        return less2css(files);
+    gulp.watch(lessFiles, function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+        less2css(event.path);
     });
 });
 
 function less2css(files) {
-    return files
+    return gulp.src(files)
         .pipe(less())
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         // .pipe(gulp.dest('public/stylesheets/'))
