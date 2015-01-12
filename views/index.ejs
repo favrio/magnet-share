@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>NSU P2P BETA™</title>
+    <title><%= title%></title>
     <link href="/stylesheets/basic.min.css" rel="stylesheet" /><!--基础样式-->
     <link href="/stylesheets/index.min.css" rel="stylesheet" />
     <script src="/third/jquery-1.7.1.min.js"></script>
@@ -12,7 +12,7 @@
 <body>
     <div id="wraper">
         <div class="header">
-            <a href="#" class="logo">首页</a>
+            <a href="#" class="logo"><%= title%></a>
             <form action="/search" class="searchBox">
                 <input type="text" name="keyword" class="searchText transform" placeholder="请输入关键词，点击搜索" autofocus />
                 <input type="submit" class="searchBtn" value="" />
