@@ -10,3 +10,5 @@ magnet file share system
 ### 说明
 
 - 使用GULP进行构建。
+> 使用npm 命令进行依赖安装。
+	npm install
