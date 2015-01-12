@@ -23,6 +23,6 @@ $(function () {
             $(this).addClass("catFocus");
             $(".catShow").hide();
             $(".catShow").eq(index).show();
-        })
+        });
     });
-})
+});
