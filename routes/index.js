@@ -102,7 +102,7 @@ module.exports = function(app) {
 				return res.redirect('/');
 			}
 			res.render('search', {
-				title: "SEARCH:" + req.query.keyword,
+				title: req.query.keyword + " 的搜索结果",
 				keyword: req.query.keyword,
 				posts: posts,
 				user: req.session.user,
@@ -190,7 +190,7 @@ module.exports = function(app) {
 				return res.redirect('/');
 			}
 			console.log(post);
-			res.render('article', {
+			res.render('item', {
 				title: post.title,
 				post: post,
 				user: req.session.user,
@@ -222,6 +222,8 @@ module.exports = function(app) {
 			res.redirect('back');
 		});
 	});
+
+	// app.get('/category/:_id')
 
 
 	app.get('/edit/:id', checkLogin);

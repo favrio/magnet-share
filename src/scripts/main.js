@@ -1,4 +1,4 @@
-﻿/// <reference path="jquery-1.7.1.min.js" />
+﻿
 $(function () {
     $(".userInfo").hover(function () {
         $(this).stop().animate({ "background-color": "#B7BCC4" });
