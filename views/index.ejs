@@ -31,7 +31,16 @@
                 <div class="catShowCutLine"></div>
                 <div class="showCase boxShadow">
                     <div class="catShow threeBorder showActive">
-                        111111111111111
+                        <div class="posts">
+                            <% posts.forEach(function (post, index) { %>
+                            <p><h2><a href="item/<%= post._id%>"><%= post.title %></a></h2></p>
+                            <p class="info">
+                            作者：<a href="#"><%= post.name %></a> | 
+                            日期：<%= post.time.minute %>
+                            </p>
+                            <p><%- post.post %></p>
+                            <% }) %>
+                        </div>
                     </div>
                     <div class="catShow threeBorder">
                         222222222222222
@@ -57,16 +66,7 @@
                     </div>
                 </div>
 
-                <div class="posts">
-                    <% posts.forEach(function (post, index) { %>
-                    <p><h2><a href="item/<%= post._id%>"><%= post.title %></a></h2></p>
-                    <p class="info">
-                    作者：<a href="#"><%= post.name %></a> | 
-                    日期：<%= post.time.minute %>
-                    </p>
-                    <p><%- post.post %></p>
-                    <% }) %>
-                </div>
+                
             </div>
 
             <div class="mainRight">
