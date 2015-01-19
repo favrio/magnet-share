@@ -12,7 +12,7 @@ $(function () {
     });
     var posLeft=0;
     setInterval(function () {
-        $('body').css("background-position-x", posLeft +=2);
+        $('body').css("background-position-x", posLeft +=1);
         if (posLeft >= 1572) {
             posLeft = 0;
         }
