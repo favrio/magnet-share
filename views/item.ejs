@@ -15,7 +15,7 @@
                     <div class="catList">
                         <span class="catListSmallTitle">标签：</span>
                         <% post.tags.forEach(function (tag, index) { %>
-                        <a>
+                        <a href="/tag/<%=tag%>">
                             <%=tag%>
                         </a>
                         <% }) %>

@@ -4,8 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title><%= title%></title>
     <link rel="stylesheet" href="/stylesheets/basic.min.css" /><!--基础样式-->
-    <link rel="stylesheet" href="/stylesheets/download.min.css" />
-    <link rel="stylesheet" href="/stylesheets/search.min.css">
+    <% if(styles.length) { %>
+        <% for(var i = 0; i < styles.length; i++) { %>
+            <link rel="stylesheet" href="/stylesheets/<%=styles[i] %>.min.css">
+        <% } %>
+    <% } %>
 </head>
 <body>
     <div id="wraper">

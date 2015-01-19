@@ -11,9 +11,7 @@
     </select>
     <input type="submit" class="subComment" value=" " />
 </div>
-  姓名：<input type="text" name="name"<% if (user) { %>disabled value="<%= user.name %>"<% } %> /><br />
-  邮箱：<input type="text" name="email"<% if (user) { %>disabled value="<%= user.email %>"<% } %> /><br />
-  网址：<input type="text" name="website"<% if (user) { %>disabled value="/u/<%= user.name %>"<% } %> /><br />
+
 </form>
 
 
@@ -22,8 +20,13 @@
         <% post.comments.forEach(function (comment, index) { %>
         <li>
             <p class="userScore"><%= comment.rate %></p>
-            <p><a class="commentSubIdNum" href="<%= comment.website %>"><%= comment.name %></a><span class="commentSubTime"><%= comment.time %></span></p>
-            <p><%- comment.content %></p>
+            <div class="commentRight">
+                <div>
+                    <a class="commentSubIdNum"<% if (comment.website) { %> href="<%= comment.website %>"<% } %>><%= comment.name %></a>
+                    <span class="commentSubTime"><%= comment.time %></span>
+                </div>
+                <div><%- comment.content %></div>
+            </div>
         </li>
         <% }) %>
     </ul>

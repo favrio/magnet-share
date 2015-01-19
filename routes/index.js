@@ -105,6 +105,7 @@ module.exports = function(app) {
 				title: req.query.keyword + " 的搜索结果",
 				keyword: req.query.keyword,
 				posts: posts,
+				styles: ["search"],
 				user: req.session.user,
 				success: req.flash('success').toString(),
 				error: req.flash('error').toString()
@@ -193,6 +194,7 @@ module.exports = function(app) {
 			res.render('item', {
 				title: post.title,
 				post: post,
+				styles: ["download"],
 				user: req.session.user,
 				success: req.flash('success').toString(),
 				error: req.flash('error').toString()
@@ -201,17 +203,29 @@ module.exports = function(app) {
 	});
 
 	app.post('/item/:_id', function(req, res) {
+		var vistor = {
+			name: "游客",
+			email: "",
+			website: ""
+		};
+		var user = req.session.user || vistor;
+		console.log(user);
 		var date = new Date(),
 			time = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +
 			date.getHours() + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
 		var comment = {
-			name: req.body.name,
-			email: req.body.email,
-			website: req.body.website,
+			name: user.name,
+			email: user.email,
+			website: user.name,
 			rate: req.body.rate,
 			time: time,
 			content: req.body.content
 		};
+		if(comment.content === "") {
+			req.flash('error', '评论人和内容不能为空。');
+			res.redirect('back');
+			return false;
+		}
 		var newComment = new Comment(req.params._id, comment);
 		newComment.save(function(err) {
 			if (err) {
